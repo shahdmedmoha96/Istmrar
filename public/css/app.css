@@ -1,0 +1,69 @@
+/* عام */
+
+:root {
+    --light-1: #8694C2;
+    --dark-1: #11191E;
+    --linear: #293241;
+}body {
+    background-color: #fdfae5;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+
+}
+main{
+    background-color: var(--dark-1)!important;
+
+}
+.navbar{
+    background-color: var(--linear)!important;
+
+}
+.navbar a.active{
+    color: var(--light-1) !important;
+}
+.navbar a:hover{
+    color: var(--light-1) !important;
+}
+.hero-container {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px 20px;
+}
+
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-img {
+    width: 380px;
+    height: 380px;
+    max-width: 100%;
+}
+.hero-btn {
+    background: linear-gradient(90deg, #6175B8 31%, #5D6EA6 100%);
+    color: white;
+    border-radius: 999px;
+    padding: 10px 20px;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.hero-btn svg{
+    background-color: #fff;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+
