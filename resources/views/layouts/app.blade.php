@@ -8,6 +8,8 @@
     {{-- bootsrap --}}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <style>
         @font-face {
@@ -22,7 +24,7 @@
 <body class="bg-gray-900 text-white">
 
     {{-- Navbar --}}
-    <nav class="navbar navbar-expand-lg shadow p-3">
+    <nav class="navbar navbar-expand-lg shadow">
         <div class="container">
             <svg width="130" height="76" viewBox="0 0 130 76" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M80.4345 6.39894L79.8071 8.59322L81.9395 7.90773C82.3201 8.28935 82.1651 8.94304 81.6505 9.10911L79 9.96068C78.6792 10.0632 78.3761 9.76634 78.4678 9.44479L79.2538 6.70635C79.4018 6.18693 80.0538 6.01732 80.438 6.39894H80.4345Z" fill="url(#paint0_linear_132_1267)"/>
@@ -341,23 +343,83 @@
                 <stop offset="1" stop-color="#8B9ACE"/>
                 </linearGradient>
                 </defs>
-                </svg>            <div class="d-flex gap-3">
+                </svg>
+                <div class="d-flex gap-5 align-items-center" style="height: 76px;">
                 <a href="{{ route('home') }}"
                    class="nav-link {{ request()->routeIs('home') ? 'active' : 'text-white' }}">
                     الصفحة الرئيسية
                 </a>
-                <a href="{{ route('services') }}" class="nav-link text-white">الخدمات</a>
-                <a href="{{ route('about') }}" class="nav-link text-white">من نحن</a>
-                <a href="{{ route('contact') }}" class="nav-link text-white">تواصل معنا</a>
+                <a href="#services" class="nav-link text-white">الخدمات</a>
+                <a href="#we" class="nav-link text-white">من نحن</a>
+                <a href="#contact" class="nav-link text-white">تواصل معنا</a>
             </div>
         </div>
     </nav>
 
 
     {{-- Main Content --}}
-    <main class="py-12 px-4">
+    <main class=" px-4">
         @yield('content')
     </main>
+<script>
+    const groups = document.querySelectorAll('.one, .two, .three, .four');
 
+groups.forEach(group => {
+    const plus = group.querySelector('.plus');
+    const minus = group.querySelector('.minus');
+    const paragraph = group.querySelector('.paragraph');
+
+    if (paragraph.classList.contains('active')) {
+        plus.style.display = 'none';
+        minus.style.display = 'inline';
+        paragraph.style.maxHeight = paragraph.scrollHeight + 'px';
+    } else {
+        plus.style.display = 'inline';
+        minus.style.display = 'none';
+        paragraph.style.maxHeight = '0px';
+    }
+
+    plus.addEventListener('click', () => {
+        paragraph.classList.add('active');
+        paragraph.style.maxHeight = paragraph.scrollHeight + 'px';
+        plus.style.display = 'none';
+        minus.style.display = 'inline';
+    });
+
+    minus.addEventListener('click', () => {
+        paragraph.classList.remove('active');
+        paragraph.style.maxHeight = '0px';
+        plus.style.display = 'inline';
+        minus.style.display = 'none';
+    });
+});
+
+window.addEventListener('DOMContentLoaded', () => {
+    document.querySelector('.fade-in-left').classList.add('active');
+    document.querySelector('.fade-in-right').classList.add('active');
+});
+document.querySelectorAll('.sidebar a').forEach(link => {
+    link.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        target.scrollIntoView({ behavior: 'smooth' });
+    });
+});
+const thumb = document.getElementById("scrollThumb");
+
+    window.addEventListener("scroll", () => {
+        const scrollTop = window.scrollY;
+        const docHeight = document.body.scrollHeight - window.innerHeight;
+        const scrollPercent = scrollTop / docHeight;
+
+        const trackHeight = document.querySelector(".scroll-bar").offsetHeight;
+        const thumbHeight = thumb.offsetHeight;
+        const maxThumbTop = trackHeight - thumbHeight;
+
+        const newTop = scrollPercent * maxThumbTop;
+
+        thumb.style.top = `${newTop}px`;
+    });
+</script>
 </body>
 </html>
