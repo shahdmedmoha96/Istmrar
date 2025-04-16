@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>{{ $title ?? 'الرئيسية' }}</title>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     {{-- bootsrap --}}
@@ -21,11 +22,12 @@
         }
     </style>
 </head>
-<body class="bg-gray-900 text-white">
+<body class=" text-white">
 
     {{-- Navbar --}}
-    <nav class="navbar navbar-expand-lg shadow">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
         <div class="container">
+            {{-- Brand or logo --}}
             <svg width="130" height="76" viewBox="0 0 130 76" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M80.4345 6.39894L79.8071 8.59322L81.9395 7.90773C82.3201 8.28935 82.1651 8.94304 81.6505 9.10911L79 9.96068C78.6792 10.0632 78.3761 9.76634 78.4678 9.44479L79.2538 6.70635C79.4018 6.18693 80.0538 6.01732 80.438 6.39894H80.4345Z" fill="url(#paint0_linear_132_1267)"/>
                 <path d="M78.4791 9.76564L74.4491 13.8058L74.5812 13.9382L78.6112 9.89807L78.4791 9.76564Z" fill="url(#paint1_linear_132_1267)"/>
@@ -344,21 +346,41 @@
                 </linearGradient>
                 </defs>
                 </svg>
-                <div class="d-flex gap-5 align-items-center" style="height: 76px;">
-                <a href="{{ route('home') }}"
-                   class="nav-link {{ request()->routeIs('home') ? 'active' : 'text-white' }}">
-                    الصفحة الرئيسية
-                </a>
-                <a href="#services" class="nav-link text-white">الخدمات</a>
-                <a href="#we" class="nav-link text-white">من نحن</a>
-                <a href="#contact" class="nav-link text-white">تواصل معنا</a>
+
+            {{-- Toggle button for small screens --}}
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+                aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            {{-- Collapsible links --}}
+            <div class="collapse navbar-collapse custom-collapse" id="navbarContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex align-items-center">
+                    <li class="nav-item">
+                        <a href="{{ route('home') }}"
+                           class="nav-link {{ request()->routeIs('home') ? 'active' : 'text-white' }}">
+                            الصفحة الرئيسية
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#services" class="nav-link text-white">الخدمات</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#we" class="nav-link text-white">من نحن</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#contact" class="nav-link text-white">تواصل معنا</a>
+                    </li>
+                </ul>
             </div>
+
         </div>
     </nav>
 
 
+
     {{-- Main Content --}}
-    <main class=" px-4">
+    <main class="px-0">
         @yield('content')
     </main>
 <script>
@@ -421,5 +443,6 @@ const thumb = document.getElementById("scrollThumb");
         thumb.style.top = `${newTop}px`;
     });
 </script>
+
 </body>
 </html>

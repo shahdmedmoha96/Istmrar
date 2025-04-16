@@ -3,8 +3,8 @@
 
     <section class="py-5" style="margin-bottom: 9rem !important" id="services">
         <div class="container">
-            <h2 class="section-title">خدماتنا</h2>
-            <div class="border">
+            <h2 class="section-title text-center text-lg-end"> خدماتنا</h2>
+            <div class="border mx-auto me-lg-0 ms-lg-auto">
                 <div class="border2">
                     <div class="border3"></div>
                 </div>
@@ -13,7 +13,8 @@
 
             <!-- الصف الأول -->
             <div class="row g-4 mb-4">
-                <div class="col-md-4">
+                <div class="col-12 col-sm-12 col-md-6 col-lg-4 d-flex align-items-center justify-content-center">
+
                     <div class="service-card" style="width: 88%">
                         <div class="hover-card">
                         <img  src="{{ asset('images/Folder-removebg-preview.png') }}" alt="icon" class="service-icon">
@@ -25,7 +26,8 @@
                     </div>
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-12 col-sm-12 col-md-6 col-lg-4 d-flex align-items-center justify-content-center">
+
                     <div class="service-card" style="width: 88%">
                         <div class="hover-card">
                         <img src="{{asset('images/Front shapes.png')}}" alt="icon" class="service-icon">
@@ -37,7 +39,8 @@
                     </div>
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-12 col-sm-12 col-md-6 col-lg-4 d-flex align-items-center justify-content-center">
+
                     <div class="service-card" style="width: 88%">
                         <div class="hover-card">
                         <img src="{{asset('images/Group 1000001968.png')}}" alt="icon" class="service-icon">
@@ -48,13 +51,12 @@
                     </div>
                     </div>
                 </div>
-            </div>
               <br>
               <br>
               <br>
             <!-- الصف الثاني -->
-            <div class="row g-4">
-                <div class="col-md-4">
+                <div class="col-12 col-sm-12 col-md-6 col-lg-4 d-flex align-items-center justify-content-center">
+
                     <div class="service-card" style="width: 88%">
                         <div class="hover-card">
                         <img src="{{asset('images/Collectibles.png')}}" alt="icon" class="service-icon">
@@ -66,7 +68,8 @@
                     </div>
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-12 col-sm-12 col-md-6 col-lg-4 d-flex align-items-center justify-content-center">
+
                     <div class="service-card" style="width: 88%">
                         <div class="hover-card">
                         <img src="{{asset('images/Group 35.png')}}" alt="icon" class="service-icon">
@@ -78,7 +81,8 @@
                     </div>
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-12 col-sm-12 col-md-6 col-lg-4 d-flex align-items-center justify-content-center">
+
                     <div class="service-card" style="width: 88%" >
                         <div class="hover-card">
                         <img src="{{asset('images/Group 1000001969.png')}}" alt="icon" class="service-icon">
